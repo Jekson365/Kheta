@@ -1,0 +1,33 @@
+@import url("//cdn.web-fonts.ge/fonts/bpg-glaho-bold/css/bpg-glaho-bold.min.css");
+@import url("//cdn.web-fonts.ge/fonts/bpg-glaho-arial/css/bpg-glaho-arial.min.css");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    transition: 0,3s;
+    font-family: "BPG Glaho Arial", sans-serif !important;
+
+}
+.css-ryrseu-MuiRating-root  {
+    color: '#1d3525' !important;
+}
+
+.prod-image {
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+.dasda {
+    transition: 0.3s;
+    opacity: 0;
+}
+.dsadssdas:hover {
+    cursor: pointer;
+    .dasda {
+        opacity: 1;
+    }
+}
