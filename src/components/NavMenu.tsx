@@ -12,12 +12,14 @@ export const NavMenu = () => {
                     <CustomTitle
                         sx={{ flexGrow: 1 }}
                     >
-                        ხეთა
+                        <Link to={'/'}>
+                            ხეთა
+                        </Link>
                     </CustomTitle>
                     <Stack
                         display={'flex'}
                         alignItems={'center'}
-                        sx={{gap:{xs:"10px",md:"50px"}}}
+                        sx={{ gap: { xs: "10px", md: "50px" } }}
                         flexDirection={'row'}>
                         <Link to={'/'}>
                             <CustomNavItem sx={stl}>მთავარი</CustomNavItem>
@@ -25,7 +27,7 @@ export const NavMenu = () => {
                         <Link to={'/about'}>
                             <CustomNavItem sx={stl}>ჩვენს შესახებ</CustomNavItem>
                         </Link>
-                        <Link to={'/products/all'}>
+                        <Link to={'/products/?type=all'}>
                             <CustomNavItem sx={stl}>პროდუქცია</CustomNavItem>
                         </Link>
                     </Stack>

@@ -26,7 +26,7 @@ const Trending = () => {
                     <Typography variant="h3" sx={{ fontSize: { xs: "25px", sm: "45px" } }}>
                         პოპულარული პროდუქცია
                     </Typography>
-                    <Link to={'/products/all'}>
+                    <Link to={'/products/?type=all'}>
                         <ShopAllButton>პროდუქცია</ShopAllButton>
                     </Link>
                 </Stack>

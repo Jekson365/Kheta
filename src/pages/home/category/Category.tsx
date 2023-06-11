@@ -34,7 +34,7 @@ const Category = () => {
                     <Typography variant="h3" sx={{ fontSize: { xs: "25px", sm: "45px" } }}>
                         კატეგორია
                     </Typography>
-                    <Link to={'/products/all'}>
+                    <Link to={'/products/?type=all'}>
                         <ShopAllButton>პროდუქცია</ShopAllButton>
                     </Link>
                 </Stack>

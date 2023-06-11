@@ -32,6 +32,12 @@ export const Products: Product[] = [
         category: "stand"
     },
     {
+        title: "სტენდი",
+        price: 25,
+        img: "https://scontent.ftbs6-2.fna.fbcdn.net/v/t39.30808-6/314347222_173979608619013_8918491194610096227_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=sjo-MAc7whgAX8EfK4m&_nc_ht=scontent.ftbs6-2.fna&oh=00_AfBjQZy_OJIUGay-uvHVQ_ytowxFb62iIKd3O-SvFKPVVA&oe=648B0A8C",
+        category: "stand"
+    },
+    {
         title: "საათი",
         img: "https://scontent.fkut1-1.fna.fbcdn.net/v/t39.30808-6/313120364_164990962826414_2657769691278291502_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=7WfZ-ZRLPMAAX8uyd0z&_nc_ht=scontent.fkut1-1.fna&oh=00_AfCD0tu-Zoa5Ydp3QT5ZXYu6v2DFDWfn47utT8WKg-SGFA&oe=648A02A8",
         price: 25,
@@ -55,4 +61,5 @@ export const Products: Product[] = [
         img: "https://scontent.fkut1-1.fna.fbcdn.net/v/t39.30808-6/305627548_155775457081298_202021500415574194_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=Bh7z6l0f7voAX-jvnl1&_nc_ht=scontent.fkut1-1.fna&oh=00_AfAM0tcyDOTq39RhYZzZZY_G-WAZojP660_NPeUaZCrokQ&oe=648A86F2",
         category: "other"
     },
+    
 ]

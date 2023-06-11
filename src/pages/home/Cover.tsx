@@ -38,7 +38,7 @@ export const Cover = () => {
                                 color={'white'}>
                                 ეკოლოგიურად სუფთა,ხისგან დამზადებული ნაკეთობები
                             </Typography>
-                            <Link to={'/products/all'}>
+                            <Link to={'/products/?type=all'}>
                                 <CustomButton>
                                     ჩვენი პროდუქცია
                                 </CustomButton>

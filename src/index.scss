@@ -5,10 +5,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    text-decoration: none;
+    text-decoration: none !important;
     transition: 0,3s;
     font-family: "BPG Glaho Arial", sans-serif !important;
 
+}
+a {
+    color: black !important;
 }
 .css-ryrseu-MuiRating-root  {
     color: '#1d3525' !important;

@@ -1,8 +1,12 @@
 import { Box, Container, Stack, Typography } from "@mui/material"
 import RowOne from "./row/RowOne"
+import { useEffect } from "react"
 
 
 export const About = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <Container
