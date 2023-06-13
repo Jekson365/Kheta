@@ -1,12 +1,15 @@
 import { AppBar, styled, Typography, Box, Button } from '@mui/material'
 
-export const MainColor = '#1d3525'
+export const MainColor = '#a82a21'
 
 
 export const CustomNavbar = styled(AppBar)({
     background: "white",
-    boxShadow: "none",
-    padding: "5px"
+    boxShadow: "0 10px 50px 0.1px rgba(0,0,0,0.1)",
+    padding: "5px",
+    position:"fixed",
+    top:"0",
+
 })
 
 export const CustomNavItem = styled(Typography)({
@@ -47,7 +50,7 @@ export const ShopAllButton = styled(Button)({
     height: "40px",
     borderRadius: "40px",
     textTransform: "capitalize",
-    fontFamily: "sans-serif !important"
+    fontFamily: "BPG Glaho Arial,sans-serif !important"
 })
 
 export const CatButton = styled(Button)({
@@ -75,4 +78,16 @@ export const CustomOverlay = styled(Box)({
     alignItems: "center",
     justifyContent: "center",
     color: "white"
+})
+
+export const Buy = styled(Button)({
+    color: "white",
+    background: MainColor,
+    padding: "5px 35px",
+    fontSize: "20px",
+    borderRadius: "40px",
+    marginTop:"15px",
+    "&:hover":{ 
+        background:MainColor
+    }
 })

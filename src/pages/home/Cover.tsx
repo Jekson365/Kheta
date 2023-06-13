@@ -35,17 +35,25 @@ export const Cover = () => {
                                 sx={{ 'fontSize': { xs: "25px", md: "55px" } }}
                                 variant='h2'
                                 mb={5}
-                                color={'white'}>
-                                ეკოლოგიურად სუფთა,ხისგან დამზადებული ნაკეთობები
+                                color={'white'}
+
+                            >
+                                <div data-aos='fade-up' data-aos-duration="1000">
+                                    ეკოლოგიურად სუფთა,ხისგან დამზადებული ნაკეთობები
+                                </div>
                             </Typography>
-                            <Link to={'/products/?type=all'}>
-                                <CustomButton>
-                                    ჩვენი პროდუქცია
-                                </CustomButton>
+                            <Link to={'/products/all'}>
+                                <div data-aos='fade-up'>
+                                    <CustomButton>
+                                        ჩვენი პროდუქცია
+                                    </CustomButton>
+                                </div>
                             </Link>
                         </Grid>
                         <Grid xs={12} md={4} item sx={{ marginTop: { xs: '20px', md: "0" } }}>
-                            <Review />
+                            <div data-aos='fade-left'>
+                                <Review />
+                            </div>
                         </Grid>
                     </Grid>
                 </CustomTitlePlace>

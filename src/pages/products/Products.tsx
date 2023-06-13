@@ -1,19 +1,24 @@
-import { Box, Container, Grid, Grow, Stack, Typography } from "@mui/material"
+import { Container, Grid, Grow, Stack, Typography } from "@mui/material"
 import { Product } from "../../data/Products"
 import { Products as ProdItems } from "../../data/Products"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import ProdItem from "../../components/ProdItem"
+import { MainColor } from "../../Styles"
+
+import { Products as Prods } from "../../data/Products"
 
 
 const Products = () => {
-    const URL = new URLSearchParams(window.location.search)
-    const [filter] = useState<String>(URL.get('type') || '')
+    const [filter] = useState<String>(window.location.href.split("/")[4].toString() || '')
+
+    // const [prod] = useState(Prods.filter((item: Product) => item.id == Number(id))[0])
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
     const red = (loc: String) => {
-        window.location.href = `/products/?type=${loc}`
+        window.location.href = `/products/${loc}`
     }
 
     return (
@@ -24,19 +29,30 @@ const Products = () => {
             >
                 <Grid container>
                     <Grid item xs={12} md={3}>
-                        <Stack direction={'column'}
+                        <Stack
+                            direction={'column'}
+                            position={'sticky'}
+                            bgcolor={MainColor}
+                            pl={3}
+                            color={'white'}
+                            pt={3}
+                            pr={3}
+                            mr={3}
+                            height={'80vh'}
+                            sx={{ top: { xs: "0px", md: "116px" } }}
                             gap={"20px"}
                             alignItems={'flex-start'}>
-                            <Link to={`/products/?type=all`} onClick={() => red('all')}>
+                            <Link to={`/products/all`}
+                                onClick={() => red('all')}>
                                 <Typography>ყველა</Typography>
                             </Link>
-                            <Link to={`/products/?type=stand`} onClick={() => red('stand')}>
+                            <Link to={`/products/stand`} onClick={() => red('stand')}>
                                 <Typography>ღვინის სტენდი</Typography>
                             </Link>
-                            <Link to={'/products/?type=clock'} onClick={() => red('clock')}>
+                            <Link to={'/products/clock'} onClick={() => red('clock')}>
                                 <Typography>საათები</Typography>
                             </Link>
-                            <Link to={'/products/?type=other'} onClick={() => red('other')}>
+                            <Link to={'/products/other'} onClick={() => red('other')}>
                                 <Typography>სხვადასხვა</Typography>
                             </Link>
                         </Stack>
@@ -47,7 +63,7 @@ const Products = () => {
                         {ProdItems
                             .filter((prod: Product) => filter == 'all' ? ProdItems : prod.category === filter)
                             .map((each: Product) => {
-                                const { title, img, price } = each
+
                                 return (
                                     <>
                                         <Grow
@@ -57,20 +73,9 @@ const Products = () => {
 
                                         >
                                             <Grid xs={12} sm={6} md={4} item>
-                                                <Box
-                                                    sx={{ height: { xs: "110vw", sm: "50vw", md: "25vw" } }}
-                                                    overflow={'hidden'}
-                                                >
-                                                    <img
-                                                        className="prod-image"
-                                                        style={{ "width": "100%", 'height': "100%", 'objectFit': "cover" }}
-                                                        src={img.toString()}
-                                                    />
-                                                </Box>
-                                                <Typography>
-                                                    {title}
-                                                </Typography>
-                                                <Typography>{price}ლ</Typography>
+                                                <Link to={`/product/${each.id}`}>
+                                                    <ProdItem prod={each} h={'110vw'} />
+                                                </Link>
                                             </Grid>
                                         </Grow>
                                     </>

@@ -2,12 +2,15 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 import Posts from "../pages/home/posts/Posts"
 import News from "./News"
+import { MainColor } from "../Styles"
+import MailIcon from '@mui/icons-material/Mail';
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 
 const Footer = () => {
     const red = (loc: String) => {
-        window.location.href = `/products/?type=${loc}`
+        window.location.href = `/products/${loc}`
     }
-    return(
+    return (
 
         <>
             <Box
@@ -23,12 +26,14 @@ const Footer = () => {
 
                     <Grid container>
                         <Grid item xs={12} md={4}>
-                            <Typography variant="h3">ხეთა</Typography>
+                            <Typography variant="h3" color={MainColor}>ხეთა</Typography>
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <Stack
                                 sx={{ marginTop: { xs: "20px", md: "0" } }}
-                                direction='column' gap={'20px'} alignItems={"flex-start"}>
+                                direction='column'
+                                color={MainColor}
+                                gap={'20px'} alignItems={"flex-start"}>
                                 <Typography>
                                     <Link
                                         to={'/'}>მთავარი</Link>
@@ -40,16 +45,25 @@ const Footer = () => {
                                 <Typography>
                                     <Link
                                         onClick={() => red('all')}
-                                        to={'/products?type=all'}>პროდუქცია</Link>
+                                        to={'/products/all'}>პროდუქცია</Link>
                                 </Typography>
                             </Stack>
                         </Grid>
                         <Grid item xs={12} md={4}>
                             <Stack
+                                color={MainColor}
                                 sx={{ marginTop: { xs: "20px", md: "0" } }}
                                 direction='column' gap={'20px'} alignItems={"flex-start"}>
-                                <Link to={'/'}>555 23 41 68</Link>
-                                <Link to={'/about'}>gioj715@gmail.com</Link>
+                                <Link to={'/'}
+                                    style={{ "display": "flex", alignItems: "center", gap: "15px" }}
+                                >555 23 41 68
+                                    <PhoneEnabledIcon />
+                                </Link>
+                                <Link
+                                    style={{ "display": "flex", alignItems: "center", gap: "15px" }}
+                                    to={'/about'}>gioj715@gmail.com
+                                    <MailIcon />
+                                </Link>
                             </Stack>
                         </Grid>
                     </Grid>

@@ -6,31 +6,102 @@
     margin: 0;
     padding: 0;
     text-decoration: none !important;
-    transition: 0,3s;
+    transition: 0, 3s;
     font-family: "BPG Glaho Arial", sans-serif !important;
 
 }
-a {
-    color: black !important;
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
 }
-.css-ryrseu-MuiRating-root  {
+
+
+.css-ryrseu-MuiRating-root {
     color: '#1d3525' !important;
+}
+
+.MuiTypography-root a {
+    text-decoration: none !important;
 }
 
 .prod-image {
     transition: 0.3s;
     cursor: pointer;
+
     &:hover {
         transform: scale(1.1);
     }
 }
+
 .dasda {
     transition: 0.3s;
     opacity: 0;
 }
+
 .dsadssdas:hover {
     cursor: pointer;
+
     .dasda {
         opacity: 1;
     }
+}
+
+.nav-item-st {
+    padding: 10px;
+    position: relative;
+
+    &:hover:after {
+        height: 100%;
+        color: white;
+    }
+
+    &:hover {
+        color: white;
+    }
+
+    &::after {
+        z-index: -100;
+        transition: 0.3s ease-in;
+        background-color: #a82a21;
+        display: block;
+        content: "";
+        width: 100%;
+        color: white;
+        height: 0%;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+    }
+}
+
+.cat-button {
+    overflow: hidden;
+    position: relative;
+    z-index: 6;
+    &:hover::after {
+        width: 100%;
+    }
+    
+    &:hover {
+        color: white !important;    
+    }
+
+    &::after {
+        z-index: -10;
+        transition: 0.3s ease-in-out;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0%;
+        background-color: #a82a21;
+        content: "";
+        display: block;
+        position: absolute;
+    }
+}
+
+.full-line {
+    width: 100%;
+    height: 1px;
+    background-color: #a82a21;
 }

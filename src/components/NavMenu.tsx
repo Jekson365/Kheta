@@ -1,5 +1,5 @@
 import { Toolbar, Stack } from '@mui/material'
-import { CustomNavItem, CustomNavbar, CustomTitle } from '../Styles'
+import { CustomNavItem, CustomNavbar, CustomTitle, MainColor } from '../Styles'
 import { Link } from 'react-router-dom'
 
 
@@ -8,27 +8,28 @@ export const NavMenu = () => {
     return (
         <>
             <CustomNavbar>
-                <Toolbar>
+                <Toolbar
+                >
                     <CustomTitle
                         sx={{ flexGrow: 1 }}
                     >
-                        <Link to={'/'}>
+                        <Link to={'/'} style={{ 'color': MainColor }}>
                             ხეთა
                         </Link>
                     </CustomTitle>
                     <Stack
                         display={'flex'}
                         alignItems={'center'}
-                        sx={{ gap: { xs: "10px", md: "50px" } }}
+                        sx={{ gap: { xs: "5px", md: "50px" } }}
                         flexDirection={'row'}>
                         <Link to={'/'}>
-                            <CustomNavItem sx={stl}>მთავარი</CustomNavItem>
+                            <CustomNavItem sx={stl} className='nav-item-st'>მთავარი</CustomNavItem>
                         </Link>
                         <Link to={'/about'}>
-                            <CustomNavItem sx={stl}>ჩვენს შესახებ</CustomNavItem>
+                            <CustomNavItem sx={stl} className='nav-item-st'>ჩვენს შესახებ</CustomNavItem>
                         </Link>
-                        <Link to={'/products/?type=all'}>
-                            <CustomNavItem sx={stl}>პროდუქცია</CustomNavItem>
+                        <Link to={'/products/all'}>
+                            <CustomNavItem sx={stl} className='nav-item-st'>პროდუქცია</CustomNavItem>
                         </Link>
                     </Stack>
                 </Toolbar>
