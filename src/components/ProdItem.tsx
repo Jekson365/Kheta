@@ -4,24 +4,24 @@ import { MainColor } from "../Styles"
 
 
 const ProdItem = ({ prod, h }: { prod: Product, h: String }) => {
-    const { title, img, price } = prod
+    const { title, image, price }: any = prod
     return (
         <>
             <Box
-                sx={{ height: { xs: h.toString(), sm: "50vw", md: "25vw" } }}
+                sx={{ height: { xs: h.toString(), sm: "50vw", md: "25vw" }, borderRadius: "3px" }}
                 overflow={'hidden'}
             >
                 <img
                     className="prod-image"
                     style={{ "width": "100%", 'height': "100%", 'objectFit': "cover" }}
-                    src={img.toString()}
+                    src={`http://localhost:8080${image}`}
                 />
             </Box>
             <Box
                 mt={1}
             >
                 <Typography fontSize={"25px"}>
-                    {title}
+                    {title} - {prod.category}
                 </Typography>
                 <Box
                     bgcolor={MainColor}

@@ -1,4 +1,4 @@
-const MainImage = 'https://scontent.fkut1-1.fna.fbcdn.net/v/t39.30808-6/311238212_161785356480308_5777257582633707832_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=KKcYggv3ZX0AX80XTRA&_nc_ht=scontent.fkut1-1.fna&oh=00_AfD_72s45Oo6OiDs81s7qtaHkVxRNE4x9diLKy0GiAFFWw&oe=6489D414'
+import CoverImage from '../../assets/products/cover.jpg'
 
 import { Box, Grid, Typography } from '@mui/material'
 import { CustomButton, CustomTitlePlace } from '../../Styles'
@@ -11,7 +11,7 @@ export const Cover = () => {
             <Box
 
                 sx={{
-                    'backgroundImage': `url('${MainImage}')`,
+                    'backgroundImage': `url('${CoverImage}')`,
                     'height': "90vh",
                     'width': "100%",
                     'backgroundSize': "cover",

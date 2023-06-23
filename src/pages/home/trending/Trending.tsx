@@ -2,9 +2,10 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material"
 import { ShopAllButton } from "../../../Styles"
 import { Link } from "react-router-dom"
 import ProdItem from "../../../components/ProdItem"
+import MinImage from '../../../assets/products/minCover.jpg'
 import { Products } from "../../../data/Products"
 
-export const IMG1 = 'https://scontent.fkut1-1.fna.fbcdn.net/v/t39.30808-6/306124254_155775357081308_6428750173462444642_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=zNZO0gKGpngAX9-dQ6b&_nc_ht=scontent.fkut1-1.fna&oh=00_AfCLmZzHCcabF7xnbglcKoJEY0G2b5qUQwtj1TYCwbf0_g&oe=6488CA93'
+export const IMG1 = MinImage
 
 const Trending = () => {
 

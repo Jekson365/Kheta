@@ -1,5 +1,4 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material"
-import { IMG1 } from "../home/trending/Trending"
 import { Buy, MainColor } from "../../Styles"
 
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
@@ -12,7 +11,7 @@ import { Product, Products } from "../../data/Products";
 function ProdPage() {
     const id = window.location.href.split("/")[4]
 
-    const [prod] = useState(Products.filter((item: Product) => item.id == Number(id))[0])
+    const [prod] = useState<any | null>(Products.filter((item: Product) => item.id == Number(id))[0])
     useEffect(() => { window.scrollTo(0, 0), console.log(id) }, [])
     const priors = [
         {
@@ -51,15 +50,15 @@ function ProdPage() {
                                     top: "0"
                                 }}
                             >
-                                <img src={prod.img.toString()}
+                                <img src={'http://localhost:8080' + prod.image.toString()}
                                     style={{ "objectFit": "cover", width: "100%", height: "100%" }} />
                             </Box>
                         </div>
                     </Grid>
-                    <Grid item xs={12} md={6} sx={{paddingLeft:{xs:"0",md:"20px"}}}>
+                    <Grid item xs={12} md={6} sx={{ paddingLeft: { xs: "0", md: "20px" } }}>
                         <Stack direction={'column'}
-                        sx={{marginTop:{xs:"20px",md:"0"}}}
-                        alignItems={'flex-start'}>
+                            sx={{ marginTop: { xs: "20px", md: "0" } }}
+                            alignItems={'flex-start'}>
                             <Typography color={MainColor} variant="h4"
                                 data-aos='fade-up'
                                 data-aos-delay='100'
@@ -109,6 +108,7 @@ function ProdPage() {
                                         return (
                                             <>
                                                 <Grid item xs={12} md={4}>
+
                                                     <Stack
                                                         textAlign={'center'}
                                                         sx={{ height: { xs: "200px", md: '200px' } }}
@@ -124,6 +124,7 @@ function ProdPage() {
                                                             mt={5}
                                                         >{icon}</Typography>
                                                     </Stack>
+                                                    
                                                 </Grid>
                                             </>
                                         )

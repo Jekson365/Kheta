@@ -2,6 +2,8 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material"
 import { CatButton, MainColor, ShopAllButton } from "../../../Styles"
 
 import ClockImage from '../../../assets/white_clock.jpg'
+import OtherImage from '../../../assets/prod_4.jpg'
+import StandImage from '../../../assets/prod_3.jpg'
 import { Link } from "react-router-dom"
 
 const Categories = [
@@ -13,12 +15,12 @@ const Categories = [
     {
         title: "ღვინის სტენდი",
         categ: "stand",
-        img: "https://scontent.fkut1-1.fna.fbcdn.net/v/t39.30808-6/306077067_155039750488202_4906407192959133235_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=e3f864&_nc_ohc=5JuyO5srQlMAX8JwRZT&_nc_oc=AQkHYjvbCBsAB-CccXUJXMD52GnCE4nudfqzT_-YueKa9E8vfrGKzK7EAnVPgUbnsH691aIFweTHchE_N-3iEOvl&_nc_ht=scontent.fkut1-1.fna&oh=00_AfC9lWFtyPFmGJ2ee6nKWf2MTNlLlfK8gzV_pq2KNJ__Yg&oe=64895E21"
+        img: StandImage
     },
     {
         title: "სხვადასხვა",
         categ: "other",
-        img: "https://scontent.fkut1-1.fna.fbcdn.net/v/t39.30808-6/305627548_155775457081298_202021500415574194_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=Bh7z6l0f7voAX8BiZc9&_nc_ht=scontent.fkut1-1.fna&oh=00_AfBw03qQ7UU-6KPuBabueKtUWsTl7SrZayONhiLAc6FXkA&oe=64888CB2"
+        img: OtherImage
     }
 ]
 
@@ -61,9 +63,10 @@ const Category = () => {
                                         <Box
                                             data-aos='fade-up'
                                             height={'37vw'}
-                                            sx={{ height: { xs: "107vw", md: "37vw" }, overflow: "hidden",
-                                            boxShadow:"0 0 50px 0.1px rgba(0,0,0,0.2)"
-                                        }}
+                                            sx={{
+                                                height: { xs: "107vw", md: "37vw" }, overflow: "hidden",
+                                                boxShadow: "0 0 50px 0.1px rgba(0,0,0,0.2)"
+                                            }}
                                             position={'relative'}
                                         >
                                             <img src={img}

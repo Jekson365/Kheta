@@ -1,4 +1,4 @@
-import { Container, Grid, Grow, Stack, Typography } from "@mui/material"
+import { CircularProgress, Container, Grid, Grow, Stack, Typography } from "@mui/material"
 import { Product } from "../../data/Products"
 import { Products as ProdItems } from "../../data/Products"
 import { useEffect, useState } from "react"
@@ -6,21 +6,18 @@ import { Link } from "react-router-dom"
 import ProdItem from "../../components/ProdItem"
 import { MainColor } from "../../Styles"
 
-import { Products as Prods } from "../../data/Products"
 
 
 const Products = () => {
     const [filter] = useState<String>(window.location.href.split("/")[4].toString() || '')
-
-    // const [prod] = useState(Prods.filter((item: Product) => item.id == Number(id))[0])
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
     const red = (loc: String) => {
         window.location.href = `/products/${loc}`
-    }
 
+    }
     return (
         <>
             <Container
@@ -60,7 +57,7 @@ const Products = () => {
                     <Grid item xs={12} md={9} columns={12} container spacing={2}
                         sx={{ marginTop: { xs: "20px", md: "0" } }}
                     >
-                        {ProdItems
+                        {ProdItems && ProdItems
                             .filter((prod: Product) => filter == 'all' ? ProdItems : prod.category === filter)
                             .map((each: Product) => {
 
@@ -74,7 +71,7 @@ const Products = () => {
                                         >
                                             <Grid xs={12} sm={6} md={4} item>
                                                 <Link to={`/product/${each.id}`}>
-                                                    <ProdItem prod={each} h={'110vw'} />
+                                                    {each ? <ProdItem prod={each} h={'110vw'} /> : <CircularProgress />}
                                                 </Link>
                                             </Grid>
                                         </Grow>
