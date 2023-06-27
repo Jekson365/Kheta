@@ -3,12 +3,14 @@ import { ShopAllButton } from "../../../Styles"
 import { Link } from "react-router-dom"
 import ProdItem from "../../../components/ProdItem"
 import MinImage from '../../../assets/products/minCover.jpg'
-import { Products } from "../../../data/Products"
+import { Product, Products } from "../../../data/Products"
+import { useContext } from "react"
+import { MainData } from "../../../App"
 
 export const IMG1 = MinImage
 
 const Trending = () => {
-
+    const data = useContext(MainData)
     return (
         <>
             <Container
@@ -21,7 +23,7 @@ const Trending = () => {
                     <Typography variant="h3" sx={{ fontSize: { xs: "25px", sm: "45px" } }}>
                         პოპულარული პროდუქცია
                     </Typography>
-                    <Link to={'/products/all'}>
+                    <Link to={'/products'}>
                         <ShopAllButton>პროდუქცია</ShopAllButton>
                     </Link>
                 </Stack>
@@ -48,7 +50,7 @@ const Trending = () => {
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container columns={12} spacing={1} rowSpacing={5}>
-                            {Products.slice(1, 7).map((each) => {
+                            {data && data.slice(0, 7).map((each : Product) => {
                                 return (
                                     <Grid item xs={6}>
                                         <div data-aos='fade-up' data-aos-duration='500'>

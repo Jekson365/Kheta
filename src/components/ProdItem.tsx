@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Stack, Typography } from "@mui/material"
 import { Product } from "../data/Products"
 import { MainColor } from "../Styles"
 
@@ -21,7 +21,15 @@ const ProdItem = ({ prod, h }: { prod: Product, h: String }) => {
                 mt={1}
             >
                 <Typography fontSize={"25px"}>
-                    {title} - {prod.category}
+                    <Stack direction={'row'} alignItems={'center'} gap={'10px'}>
+                        <Typography typography={'h5'}>{title}</Typography>
+                        <Typography fontSize={'15px'}
+                            bgcolor={MainColor}
+                            paddingLeft={1}
+                            borderRadius={1}
+                            paddingRight={1}
+                            color={'white'} mt={0.3}> {prod.category}</Typography>
+                    </Stack>
                 </Typography>
                 <Box
                     bgcolor={MainColor}

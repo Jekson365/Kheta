@@ -48,7 +48,7 @@ const Category = () => {
                             variant="h3" sx={{ fontSize: { xs: "25px", sm: "45px" } }}>
                             კატეგორია
                         </Typography>
-                        <Link to={'/products/all'}>
+                        <Link to={'/products'}>
                             <ShopAllButton
                                 sx={{ "color": "white", border: "1px solid white" }}
                             >პროდუქცია</ShopAllButton>
@@ -56,7 +56,7 @@ const Category = () => {
                     </Stack>
                     <Grid container columns={12} spacing={3} mt={4}>
                         {Categories.map((item) => {
-                            const { title, img, categ } = item
+                            const { title, img } = item
                             return (
                                 <>
                                     <Grid item xs={12} md={4}>
@@ -80,7 +80,7 @@ const Category = () => {
                                                 justifyContent={'center'}
                                                 width={'100%'}
                                             >
-                                                <Link to={`/products/${categ}`} style={{ "width": "100%", textAlign: "center" }}>
+                                                <Link to={`/products`} style={{ "width": "100%", textAlign: "center" }}>
                                                     <CatButton
                                                         className="cat-button"
                                                         sx={{ fontSize: "20px" }}

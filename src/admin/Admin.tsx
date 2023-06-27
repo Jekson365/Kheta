@@ -1,6 +1,7 @@
-import { Box, Container, Grid, Input, MenuItem, Select, TextareaAutosize, styled } from "@mui/material"
+import { Alert, Box, Container, Grid, Input, MenuItem, Select, TextareaAutosize, styled } from "@mui/material"
 import { Product } from "../data/Products"
 import { useState } from "react"
+import { Login } from "../pages/auth/Login"
 import axios from "axios"
 import Items from "./Items"
 import { CustomButton, MainColor } from "../Styles"
@@ -11,10 +12,10 @@ export const Admin = () => {
     const [desc, setDesc] = useState("")
     const [category, setCat] = useState("")
     const [image, setImage] = useState<string>("")
+    const [msg, setMsg] = useState<String | null>('none')
 
 
     const handleSubmit = async (e: any) => {
-
         e.preventDefault()
 
         const objectToSend: Product = {
@@ -26,15 +27,22 @@ export const Admin = () => {
             id: Math.floor(Math.random() * 100000000)
         }
 
-        console.log(objectToSend)
+        if (objectToSend.title.length > 4 && objectToSend.desc.length > 4 && image) {
 
-        await axios.post("http://localhost:8080/products/postall", objectToSend, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        })
+            await axios.post("http://localhost:8080/products/postall", objectToSend, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            })
+            location.reload()
+        }
+        else {
+            setMsg('block')
 
-        location.reload()
+            setTimeout(() => {
+                setMsg("none")
+            }, 1000)
+        }
 
 
     }
@@ -49,22 +57,26 @@ export const Admin = () => {
                 <form encType="multipart/form-data">
                     <Box mt={5}>
                         <Grid container columns={12} flexDirection={'column'} rowSpacing={4}>
+                            <Alert
+                                sx={{ display: msg?.toString() }}
+                                severity="warning">შეამოწმეთ ყველა ველი</Alert>
                             <Grid item xs={12} md={6}>
                                 <CustomInput placeholder="დასახელება" fullWidth onChange={(e) => setTitle(e.target.value)} />
                             </Grid>
                             <Grid item xs={12} md={6}>
-                                <CustomInput placeholder="ფასი" fullWidth onChange={(e: any) => setPrice(e.target.value)} />
+                                <CustomInput
+                                    type="number"
+                                    placeholder="ფასი" fullWidth onChange={(e: any) => setPrice(e.target.value)} />
                             </Grid>
                             <Grid item xs={12} md={6} >
                                 <Select
+                                    style={{ "width": '100%' }}
+                                    placeholder="სტენდი"
                                     onChange={(e: any) => setCat(e.target.value)}
-                                    sx={{ 'width': "100%", border: "1px solid black" }}
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={25}
-                                    label="Age"
+                                // sx={{ 'width': "100%" }}
+                                // labelId="demo-simple-Select-label"
                                 >
-                                    <MenuItem value={'stand'}>სტენდი</MenuItem>
+                                    <MenuItem value={'stand'} selected>სტენდი</MenuItem>
                                     <MenuItem value={'clock'}>საათი</MenuItem>
                                     <MenuItem value={'other'}>სხვადასხვა</MenuItem>
                                 </Select>
@@ -107,7 +119,7 @@ const CustomTextArea = styled(TextareaAutosize)({
 
 
 const CustomInput = styled(Input)({
-    border: "1px solid gray",
-    borderRadius: "4px",
-    padding: "10px 20px",
+border: "1px solid gray",
+borderRadius: "4px",
+padding: "10px 20px",
 })

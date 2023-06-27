@@ -7,9 +7,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 
 const Footer = () => {
-    const red = (loc: String) => {
-        window.location.href = `/products/${loc}`
-    }
     return (
 
         <>
@@ -44,8 +41,7 @@ const Footer = () => {
                                 </Typography>
                                 <Typography>
                                     <Link
-                                        onClick={() => red('all')}
-                                        to={'/products/all'}>პროდუქცია</Link>
+                                        to={'/products'}>პროდუქცია</Link>
                                 </Typography>
                             </Stack>
                         </Grid>

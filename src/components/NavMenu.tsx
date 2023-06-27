@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 export const NavMenu = () => {
-    const stl = { 'fontSize': { 'xs': "13px", 'md': "20px" } }
+    const stl = { 'fontSize': { 'xs': "10px", 'md': "20px" } }
     return (
         <>
             <CustomNavbar>
@@ -20,7 +20,7 @@ export const NavMenu = () => {
                     <Stack
                         display={'flex'}
                         alignItems={'center'}
-                        sx={{ gap: { xs: "5px", md: "50px" } }}
+                        sx={{ gap: { xs: "0px", md: "50px" } }}
                         flexDirection={'row'}>
                         <Link to={'/'}>
                             <CustomNavItem sx={stl} className='nav-item-st'>მთავარი</CustomNavItem>
@@ -28,7 +28,7 @@ export const NavMenu = () => {
                         <Link to={'/about'}>
                             <CustomNavItem sx={stl} className='nav-item-st'>ჩვენს შესახებ</CustomNavItem>
                         </Link>
-                        <Link to={'/products/all'}>
+                        <Link to={'/products'}>
                             <CustomNavItem sx={stl} className='nav-item-st'>პროდუქცია</CustomNavItem>
                         </Link>
                     </Stack>

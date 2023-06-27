@@ -1,18 +1,25 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material"
-import { Buy, MainColor } from "../../Styles"
-
+import { MainColor } from "../../Styles"
+import { Link } from "react-router-dom";
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import { useEffect, useState } from "react";
-import { Product, Products } from "../../data/Products";
+import { useContext, useEffect, useState } from "react";
+import { Product } from "../../data/Products";
+import { MainData } from "../../App";
+import MailIcon from '@mui/icons-material/Mail';
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 
 
 function ProdPage() {
     const id = window.location.href.split("/")[4]
 
-    const [prod] = useState<any | null>(Products.filter((item: Product) => item.id == Number(id))[0])
+    const data = useContext(MainData)
+
+    const [prod] = useState<any | null>(data.filter((item: Product) => item.id == Number(id))[0])
+
     useEffect(() => { window.scrollTo(0, 0), console.log(id) }, [])
+
     const priors = [
         {
             title: "მაღალი ხარისხი",
@@ -59,10 +66,18 @@ function ProdPage() {
                         <Stack direction={'column'}
                             sx={{ marginTop: { xs: "20px", md: "0" } }}
                             alignItems={'flex-start'}>
-                            <Typography color={MainColor} variant="h4"
-                                data-aos='fade-up'
-                                data-aos-delay='100'
-                            >{prod.title}</Typography>
+                            <Stack direction={'row'} alignItems={'center'} gap={'20px'}>
+                                <Typography color={MainColor} variant="h4"
+                                    data-aos='fade-up'
+                                    data-aos-delay='100'
+                                >{prod.title}</Typography>
+                                <Typography fontSize={'19px'}
+                                    bgcolor={MainColor}
+                                    paddingLeft={1}
+                                    borderRadius={1}
+                                    paddingRight={1}
+                                    color={'white'} mt={0.3}> {prod.category}</Typography>
+                            </Stack>
                             <Box
                                 bgcolor={MainColor}
                                 width={'fit-content'}
@@ -85,14 +100,26 @@ function ProdPage() {
                                 data-aos='fade-up'
                                 data-aos-delay='300'
                             >
-                                შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის შესრულებისას საჩვენებელია, თუ როგორი გამოიყურება
+                                {prod.desc}
                             </Typography>
-                            <Buy
-                                data-aos='fade-up'
-                                data-aos-delay='400'
-                            >
-                                შეძენა
-                            </Buy>
+                            <Stack direction={'row'} alignItems={'center'}>
+
+                            </Stack>
+                            <Stack
+                                color={MainColor}
+                                sx={{ marginTop: { xs: "20px", md: "40px" } }}
+                                direction='row' gap={'20px'} alignItems={"flex-start"} flexWrap={'wrap'}>
+                                <Link to={'/'}
+                                    style={{ "display": "flex", alignItems: "center", gap: "15px" }}
+                                >555 23 41 68
+                                    <PhoneEnabledIcon />
+                                </Link>
+                                <Link
+                                    style={{ "display": "flex", alignItems: "center", gap: "15px" }}
+                                    to={'/about'}>gioj715@gmail.com
+                                    <MailIcon />
+                                </Link>
+                            </Stack>
                             <Container
                                 sx={{ "marginTop": "100px", background: "#fcf8f3", padding: "20px 0" }}
                                 maxWidth={'xl'}
@@ -124,7 +151,7 @@ function ProdPage() {
                                                             mt={5}
                                                         >{icon}</Typography>
                                                     </Stack>
-                                                    
+
                                                 </Grid>
                                             </>
                                         )

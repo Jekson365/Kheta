@@ -42,7 +42,7 @@ export const Cover = () => {
                                     ეკოლოგიურად სუფთა,ხისგან დამზადებული ნაკეთობები
                                 </div>
                             </Typography>
-                            <Link to={'/products/all'}>
+                        <Link to={'/products'}>
                                 <div data-aos='fade-up'>
                                     <CustomButton>
                                         ჩვენი პროდუქცია

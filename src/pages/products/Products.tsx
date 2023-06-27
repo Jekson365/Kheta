@@ -1,22 +1,30 @@
 import { CircularProgress, Container, Grid, Grow, Stack, Typography } from "@mui/material"
 import { Product } from "../../data/Products"
-import { Products as ProdItems } from "../../data/Products"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import ProdItem from "../../components/ProdItem"
 import { MainColor } from "../../Styles"
+import { MainData } from "../../App"
 
 
 
 const Products = () => {
-    const [filter] = useState<String>(window.location.href.split("/")[4].toString() || '')
+
+    const data = useContext(MainData)
+
+    const [filter, setFilter] = useState<any>(data)
+
     useEffect(() => {
         window.scrollTo(0, 0)
+        showAll()
     }, [])
 
     const red = (loc: String) => {
-        window.location.href = `/products/${loc}`
-
+        // window.location.href = `/products/${loc}`
+        setFilter(data.filter((item: Product) => item.category == loc))
+    }
+    const showAll = () => {
+        setFilter(data)
     }
     return (
         <>
@@ -35,30 +43,31 @@ const Products = () => {
                             pt={3}
                             pr={3}
                             mr={3}
+
                             height={'80vh'}
-                            sx={{ top: { xs: "0px", md: "116px" } }}
+                            sx={{ top: { xs: "0px", md: "116px" }, cursor: "pointer" }}
                             gap={"20px"}
                             alignItems={'flex-start'}>
-                            <Link to={`/products/all`}
-                                onClick={() => red('all')}>
+                            <Typography
+                                onClick={() => showAll()}>
                                 <Typography>ყველა</Typography>
-                            </Link>
-                            <Link to={`/products/stand`} onClick={() => red('stand')}>
+                            </Typography>
+                            <Typography onClick={() => red('stand')}>
                                 <Typography>ღვინის სტენდი</Typography>
-                            </Link>
-                            <Link to={'/products/clock'} onClick={() => red('clock')}>
+                            </Typography>
+                            <Typography onClick={() => red('clock')}>
                                 <Typography>საათები</Typography>
-                            </Link>
-                            <Link to={'/products/other'} onClick={() => red('other')}>
+                            </Typography>
+                            <Typography onClick={() => red('other')}>
                                 <Typography>სხვადასხვა</Typography>
-                            </Link>
+                            </Typography>
                         </Stack>
                     </Grid>
                     <Grid item xs={12} md={9} columns={12} container spacing={2}
                         sx={{ marginTop: { xs: "20px", md: "0" } }}
                     >
-                        {ProdItems && ProdItems
-                            .filter((prod: Product) => filter == 'all' ? ProdItems : prod.category === filter)
+                        {filter && filter
+                            // .filter((prod: Product) => filter == 'all' ? ProdItems : prod.category === filter)
                             .map((each: Product) => {
 
                                 return (

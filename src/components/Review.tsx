@@ -21,12 +21,11 @@ export const Review = () => {
                     <Typography variant='h5' color={MainColor}
                         sx={{ fontSize: { xs: "20px" } }}
                     >
-                        საუკეთესო თავის სფეროში,ვუწევ რეკომენდაციას,
-                        და კიდევ რაღაც
+                      შევიძინე ვიოლინოს ბარი და ულამაზესია. ჩემი რეკომენტაცია ამ გვერდს! დიდი მადლობა
                     </Typography>
                     <Stack direction={'row'}>
                         <Typography fontSize={"13px"}>
-                            ნიკოლო მაკიაველი
+                            ნინა სამხარაძე
                         </Typography>
                     </Stack>
                 </Stack>
