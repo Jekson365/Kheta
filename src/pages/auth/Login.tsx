@@ -6,59 +6,32 @@ import axios from "axios"
 
 
 export const Login = () => {
-    // const [username, setUsername] = useState("")
-    // const [password, setPassowrd] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassowrd] = useState("")
 
-    // const handleSubmit = async () => {
-    //     try {
-    //         await axios.post("http://localhost:8080/login",
-    //             { username: username, password: password })
-    //             .then((res) => {
-    //                 const token = res.data.token
+    const handleSubmit = async () => {
+        try {
+            await axios.post("http://localhost:8080/login",
+                { username: username, password: password })
+                .then((res) => {
+                    const token = res.data.token
 
-    //                 localStorage.setItem("token",token)
-    //             })
-    //     }
-    //     catch (err) {
-    //         throw err
-    //     }
-    // }
-
-    useEffect(() => {
-        let isMounted = true
-        const controller = new AbortController()
-
-        const getUsers = async () => {
-            try {
-                const response = await axios.get("http://localhost:8080/login", {
-                    signal: controller.signal
+                    localStorage.setItem("token", token)
                 })
-
-                console.log(response.data)
-
-                isMounted && setUsers(response.data)
-            }
-            catch (err) {
-                console.log(err)
-            }
         }
-
-        getUsers()
-
-        return () => {
-            isMounted = false
-            controller.abort()
+        catch (err) {
+            throw err
         }
-    }, [])
+    }
 
 
-    const [users, setUsers] = useState([])
+
     return (
         <>
             <Container
                 sx={{ 'marginTop': "100px", display: "flex", justifyContent: "center" }}
             >
-                {/* <Grid container columns={12}>
+                <Grid container columns={12}>
                     <form>
                         <Stack direction={'column'}>
                             <CustomInput
@@ -70,24 +43,7 @@ export const Login = () => {
                             <CustomButton onClick={handleSubmit}>შესვლა</CustomButton>
                         </Stack>
                     </form>
-                </Grid> */}
-                {users?.length
-                    ?
-                    (
-                        <ul>
-                            {users.map((user, i) => {
-                                return (
-
-                                    <li key={i}>
-                                        {user?.username}
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                    )
-                    : <h2>no users</h2>
-
-                }
+                </Grid>
             </Container>
         </>
     )
