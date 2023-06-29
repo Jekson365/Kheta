@@ -1,10 +1,10 @@
 import { Alert, Box, Container, Grid, Input, MenuItem, Select, TextareaAutosize, styled } from "@mui/material"
 import { Product } from "../data/Products"
 import { useState } from "react"
-import { Login } from "../pages/auth/Login"
-import axios from "axios"
 import Items from "./Items"
 import { CustomButton, MainColor } from "../Styles"
+import dotenv from 'dotenv'
+import { instance } from "../App"
 
 export const Admin = () => {
     const [title, setTitle] = useState("")
@@ -18,6 +18,7 @@ export const Admin = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault()
 
+
         const objectToSend: Product = {
             title,
             price,
@@ -26,22 +27,24 @@ export const Admin = () => {
             image,
             id: Math.floor(Math.random() * 100000000)
         }
+        if (localStorage.getItem("token")) {
 
-        if (objectToSend.title.length > 4 && objectToSend.desc.length > 4 && image) {
+            if (objectToSend.title.length > 4 && objectToSend.desc.length > 4 && image) {
 
-            await axios.post("http://localhost:8080/products/postall", objectToSend, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            })
-            location.reload()
-        }
-        else {
-            setMsg('block')
+                await instance.post("products/postall", objectToSend, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                })
+                location.reload()
+            }
+            else {
+                setMsg('block')
 
-            setTimeout(() => {
-                setMsg("none")
-            }, 1000)
+                setTimeout(() => {
+                    setMsg("none")
+                }, 1000)
+            }
         }
 
 
@@ -119,7 +122,7 @@ const CustomTextArea = styled(TextareaAutosize)({
 
 
 const CustomInput = styled(Input)({
-border: "1px solid gray",
-borderRadius: "4px",
-padding: "10px 20px",
+    border: "1px solid gray",
+    borderRadius: "4px",
+    padding: "10px 20px",
 })

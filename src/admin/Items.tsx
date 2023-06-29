@@ -9,8 +9,10 @@ const Items = () => {
     const data = useContext(MainData)
 
     const deleteItem = async (id: string) => {
-        await axios.delete(`http://localhost:8080/products/delete/${id}`).then(() => console.log("deleted"))
-        location.reload()
+        if (localStorage.getItem("token")) {
+            await axios.delete(`http://localhost:8080/products/delete/${id}`).then(() => console.log("deleted"))
+            location.reload()
+        }
     }
 
     return (

@@ -10,7 +10,11 @@
     font-family: "BPG Glaho Arial", sans-serif !important;
 
 }
-a, a:hover, a:focus, a:active {
+
+a,
+a:hover,
+a:focus,
+a:active {
     text-decoration: none;
     color: inherit;
 }
@@ -74,16 +78,32 @@ a, a:hover, a:focus, a:active {
     }
 }
 
+.nav-item-st-2 {
+    font-size: 10px !important;
+    padding: 10px;
+    position: relative;
+
+    &:hover {
+        height: 100%;
+        background-color: #a82a21 !important;
+        color: white;
+    }
+    
+
+
+}
+
 .cat-button {
     overflow: hidden;
     position: relative;
     z-index: 6;
+
     &:hover::after {
         width: 100%;
     }
-    
+
     &:hover {
-        color: white !important;    
+        color: white !important;
     }
 
     &::after {

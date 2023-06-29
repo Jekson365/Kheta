@@ -17,12 +17,17 @@ import { Login } from './pages/auth/Login'
 
 export const MainData = createContext<any>(null)
 
+export const instance = axios.create({
+  baseURL: "http://localhost:8080",
+})
+
 function App() {
 
   const [data, setData] = useState<any>()
   useEffect(() => {
 
-    axios.get("http://localhost:8080/products/getall").then((res) => setData(res.data))
+    instance.get("products/getall").then((res) => setData(res.data))
+    
   },[])
 
   useEffect(() => {
@@ -39,8 +44,8 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/products' element={<Products />} />
             <Route path='/product/:id' element={<ProdPage />} />
-            <Route path='/admin/abdahsbdhabhsdbhasbudibahbdbqwqeq' element={<Admin />} />
-            <Route path='login' element={<Login />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='/login' element={<Login />} />
           </Routes>
           <Footer />
         </MainData.Provider>

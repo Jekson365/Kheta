@@ -3,7 +3,7 @@ import { ShopAllButton } from "../../../Styles"
 import { Link } from "react-router-dom"
 import ProdItem from "../../../components/ProdItem"
 import MinImage from '../../../assets/products/minCover.jpg'
-import { Product, Products } from "../../../data/Products"
+import { Product} from "../../../data/Products"
 import { useContext } from "react"
 import { MainData } from "../../../App"
 
@@ -50,7 +50,7 @@ const Trending = () => {
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container columns={12} spacing={1} rowSpacing={5}>
-                            {data && data.slice(0, 7).map((each : Product) => {
+                            {data && data.slice(0, 6).map((each : Product) => {
                                 return (
                                     <Grid item xs={6}>
                                         <div data-aos='fade-up' data-aos-duration='500'>

@@ -15,8 +15,10 @@ const Products = () => {
     const [filter, setFilter] = useState<any>(data)
 
     useEffect(() => {
+
         window.scrollTo(0, 0)
         showAll()
+    
     }, [])
 
     const red = (loc: String) => {

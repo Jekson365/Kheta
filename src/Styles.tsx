@@ -91,3 +91,10 @@ export const Buy = styled(Button)({
         background:MainColor
     }
 })
+
+export const GetInButton = styled(Button)({
+    background:MainColor,
+    borderRadius:"40px",
+    color:"White",
+    padding:"10px 20px"
+})
